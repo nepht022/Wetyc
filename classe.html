@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/all.css" rel="stylesheet">
+        <link href="assets/css/estilo.css" rel="stylesheet">
+        <title>When They Came</title>
+        <link rel="icon" href="assets/img/icon-title.svg">
+    </head>
+    <body>
+        <!--Barra de navegação-->
+        <nav class="navbar navbar-expand-lg fixed-top navBarra">
+            <div class="container">
+                <a href="index.html" class="navbar-brand pr-3 pl-3"><i class="fa-solid fa-khanda fa-flip-horizontal fa-2xl icon"></i></a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Botao de Navegação">
+                    <i class="fa-solid fa-regular fa-bars navTexto"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <div class="navbar-nav mr-auto">
+                        <a class="navTexto" href="noticia.html">Notícias</a>
+                        <a class="navTexto" href="#modalAddComentario" data-toggle="modal">Comentário</a>
+                        <div class="dropdown">
+                            <a class="nav-item nav-link navTexto dropdown-toggle" data-toggle="dropdown" href="#">Atualizações</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="atualizacao.html">v2.0</a>
+                                <a class="dropdown-item" href="atualizacao.html">v1.9.2</a>
+                                <a class="dropdown-item" href="atualizacao.html">v1.8.5</a>
+                            </div>
+                        </div>
+                        <a class="navTexto" href="loja.html">Loja</a>
+                        <a class="navTexto" href="classe.html">Classes</a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link navTexto" href="#"><i class="fa-solid fa-basket-shopping fa-md pr-1 d-none d-lg-inline-block"></i>
+                            <span class="d-block d-lg-none navTexto">Carrinho</span>
+                        </a>
+                        <a class="nav-item nav-link navTexto" href="#"><i class="fa-solid fa-right-to-bracket fa-md pr-1 d-none d-lg-inline-block"></i>
+                            <span>Login</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!--Navegação Modal Comentarios-->
+        <div class="modal fade" id="modalAddComentario">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-title"><b>Adição de Comentário</b></span>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form>
+                            <fieldset class="form-group">
+                                <div class="form-group row">
+                                    <label for="nick" class="col-form-label col-lg-2">Nickname: </label>
+                                    <div class="col-lg-10">
+                                        <input type="text" id="nick" name="nick" class="form-control" aria-describedby="ajudaNick" placeholder="Nome no jogo">
+                                        <small id="ajudaNick" class="form-text text-muted">
+                                            Seu nick pode ser escrito todo em <b>minúsculo</b>.
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="email" class="col-form-label col-lg-2">Email: </label>
+                                    <div class="col-lg-10">
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="E-mail">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="sexo" class="col-form-label col-lg-2">Sexo: </label>
+                                    <div class="col-lg-10" style="padding-top: 7px;">
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" id="sexo-m" name="sexo" value="M" class="form-check-input">
+                                            <label for="sexo-m" class="form-check-label">
+                                                Masculino
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" id="sexo-f" name="sexo" value="F" class="form-check-input">
+                                            <label for="sexo-f" class="form-check-label">
+                                                Feminino
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" id="sexo-o" name="sexo" value="O" class="form-check-input">
+                                            <label for="sexo-o" class="form-check-label">
+                                                Outro
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="satRange" class="col-form-label col-lg-2">Está gostando do jogo?</label>
+                                    <div class="col-lg-10 align-self-center">
+                                        <input type="range" id="satRange" name="satRange" class="custom-range" min="1" max="10" step="1" value="10">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="textArea" class="col-form-label col-lg-2">Comentário: </label>
+                                    <div class="col-lg-10">
+                                        <textarea id="textArea" name="textArea" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="form-group row">
+                                <div class="col-lg-10 offset-lg-2">
+                                   <button type="button" class="btn btn-dark " data-dismiss="modal" onclick="comentarioPostado()">
+                                        Postar
+                                   </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Imagem antes do Footer-->
+        <div class="d-block d-xl-none" style="opacity: 0.9; margin-top: 68px;">
+            <img src="assets/img/comece.jpg" class="d-block w-100" height="500">
+        </div>
+
+        <!--Imagem da seleção >= xl-->
+        <div class="d-none d-xl-block row" style="opacity: 0.9; margin-top: 68px;">
+            <div class="d-none d-xl-block col selecao">
+                <img class="img-class-fundo position-relative d-block w-100" src="assets/img/selecao.jpg" height="600">
+                <img onclick="mostraArqueiro()" class="img-class position-absolute d-block" style="bottom: 140px; left: 90px;" src="assets/img/arqueiro.png">
+                <img onclick="mostraDruida()" class="img-class position-absolute d-block" style="bottom: 245px; left: 340px;" src="assets/img/druida.png">
+                <img onclick="mostraGuerreiro()" class="img-class position-absolute d-block" style="bottom: 200px; left: 590px;" src="assets/img/guerreiro.png">
+                <img onclick="mostraMago()" class="img-class position-absolute d-block" style="bottom: 200px; left: 820px;" src="assets/img/mago.png">
+                <img onclick="mostraPaladino()" class="img-class position-absolute d-block" style="bottom: 150px; left: 1040px;" src="assets/img/paladino.png">
+            </div>
+        </div>
+
+        <!--Selecao alternativa lg, md-->
+        <div class="container d-none d-md-block d-xl-none ">
+            <nav aria-label="Navegação de Classes">
+                <div class="row pt-4 w-100" id="nav-class">
+                    <ul class="pagination d-flex justify-content-center align-items-center pt-2 pb-2">
+                        <div class="col-2">
+                            <li onclick="mostraArqueiro()" class="page-item"><a class="page-link" href="#" onclick="return false"><img src="assets/img/arqueiro-icon.png"></a></li>
+                        </div>
+                        <div class="col-2">
+                            <li onclick="mostraDruida()" class="page-item"><a class="page-link" href="#" onclick="return false"><img src="assets/img/druida-icon.png"></a></li>
+                        </div>
+                        <div class="col-2">
+                            <li onclick="mostraGuerreiro()" class="page-item"><a class="page-link" href="#" onclick="return false"><img src="assets/img/guerreiro-icon.png"></a></li>
+                        </div>
+                        <div class="col-2">
+                            <li onclick="mostraMago()" class="page-item"><a class="page-link" href="#" onclick="return false"><img src="assets/img/mago-icon.png"></a></li>
+                        </div>
+                        <div class="col-2">
+                            <li onclick="mostraPaladino()" class="page-item"><a class="page-link" href="#" onclick="return false"><img src="assets/img/paladino-icon.png"></a></li>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!--Selecao alternativa <= sm-->
+       <div class="container pt-3 d-flex justify-content-center d-md-none">
+        <div class="row" id="selecao-2">
+          <div class="col">
+            <nav aria-label="breadcrumb" >
+                <ol class="breadcrumb" style="background: rgb(199, 131, 4);">
+                    <li onclick="mostraArqueiro()" class="breadcrumb-item"><a href="#" onclick="return false">Arqueiro</a></li>
+                    <li onclick="mostraDruida()" class="breadcrumb-item"><a href="#" onclick="return false">Druida</a></li>
+                    <li onclick="mostraGuerreiro() "class="breadcrumb-item"><a href="#" onclick="return false">Guerreiro</a></li>
+                    <li onclick="mostraMago()" class="breadcrumb-item"><a href="#" onclick="return false">Mago</a></li>
+                    <li onclick="mostraPaladino()" class="breadcrumb-item"><a href="#" onclick="return false">Paladino</a></li>
+                </ol>
+            </nav>
+          </div>
+        </div>
+       </div>
+
+        <!--Texto da seleção-->
+        <!--Guerreiro-->
+        <div class="d-none container pb-5" id="guerreiro">
+            <div class="titulo-classe text-center pb-3 pt-4">
+                <h1 class="display-3 font-weight-bold">Guerreiro</h1>
+                <h3>Tanque, Dano</h3>
+            </div>
+            <div class="row">
+                <div class="card col-12 col-md-6 card-1 mb-4 mb-md-0">
+                    <div class="card-body texto-1">
+                        <h3>Informações da classe</h3>
+                        <p>Os guerreiros se equipam cuidadosamente para o combate e enfrentam seus inimigos de frente, deixando que os ataques rebatam em sua armadura pesada. Eles usam diversas táticas de combate e uma grande variedade de tipos de armas para proteger seus aliados mais vulneráveis. Os guerreiros devem dominar cuidadosamente sua raiva (o poder por trás de seus ataques mais fortes) para maximizar sua eficácia em combate.</p>
+                        <h3>Funções</h3>
+                        <p>Tanque, Dano</p>
+                        <h3>Recursos</h3>
+                        <p>Vida, Ira</p>
+                        <h3>Armadura</h3>
+                        <p>Placa, Escudos</p>
+                        <h3>Armas</h3>
+                        <p>Adagas, Armas de Punho, Machados, Maças, Espadas, Armas de Haste, Cajados </p>
+                    </div>
+                </div>
+                <div class="card col-12 col-md-6 card-2">
+                    <div class="card-body">
+                        <div class="titulo-texto-2">
+                            <img class="card-img-overlay d-none d-md-block" style="left:200px; top: -125px;" src="assets/img/guerreiro-icon.png">
+                            <h3 class="text-center pt-5">Características</h3>
+                        </div>
+                        <div class="texto-2">
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/ability_defend.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Tanque</h5>
+                            </div>
+                            <p>Os guerreiros dependem de sua armadura pesada, escudo e proeza na batalha para se defenderem e assegurarem que o inimigo não foque sua atenção em seus aliados mais frágeis.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/ability_meleedamage.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Dano Corpo a corpo</h5>
+                            </div>
+                            <p>O domínio das armas é um aspecto fundamental do treinamento dos guerreiros e eles são capazes de causar grandes quantidades de dano ao usar gigantescas armas de duas mãos ou empunhar duas armas ao mesmo tempo.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/spell_nature_ancestralguardian.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Ira</h5>
+                            </div>
+                            <p>A ira dos guerreiros aumenta conforme eles causam e recebem danos, permitindo-lhes liberar ataques realmente devastadores no calor da batalha.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Druida-->
+        <div class="d-none container pb-5" id="druida">
+            <div class="titulo-classe text-center pb-3 pt-4">
+                <h1 class="display-3 font-weight-bold">Druida</h1>
+                <h3>Tanque, Cura, Dano</h3>
+            </div>
+            <div class="row">
+                <div class="card col-12 col-md-6 card-1 mb-4 mb-md-0">
+                    <div class="card-body texto-1">
+                        <h3>Informações da classe</h3>
+                        <p>Os druidas são combatentes versáteis e capazes de atuar em quase todas as funções: curador, tanque ou causador de danos. É fundamental que os druidas adaptem seu estilo de acordo com a situação atual da batalha já que cada uma das funções tem um propósito específico.</p>
+                        <h3>Funções</h3>
+                        <p>Tanque, Cura, Dano</p>
+                        <h3>Recursos</h3>
+                        <p>Pontos de Vida, Mana, Raiva, Energia, Poder Astral</p>
+                        <h3>Armadura</h3>
+                        <p>Tecido, Couro</p>
+                        <h3>Armas</h3>
+                        <p>Adagas, Armas de Punho, Maças, Armas de Haste, Cajados</p>
+                    </div>
+                </div>
+                <div class="card col-12 col-md-6 card-2">
+                    <div class="card-body">
+                        <div class="titulo-texto-2">
+                            <img class="card-img-overlay d-none d-md-block" style="left:185px; top: -110px;" src="assets/img/druida-icon.png">
+                            <h3 class="text-center pt-5">Características</h3>
+                        </div>
+                        <div class="texto-2">
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/ability_druid_mastershapeshifter.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Transformação</h5>
+                            </div>
+                            <p>As diversas formas dos druidas os permitem ter funções distintas, seja como tanque, curador ou causador de dano. Eles também podem assumir outras formas para viajar mais rápido por terra, mar e ar.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/spell_nature_resistnature.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Cura</h5>
+                            </div>
+                            <p>Ao canalizar os poderes da natureza, os druidas são capazes de restaurar a vida de seus aliados feridos.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/ability_druid_demoralizingroar.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Tanque</h5>
+                            </div>
+                            <p>Quando estão na forma de urso, os druidas possuem um couro grosso e uma presença imponente que os tornam peças ideais para a linha de frente a fim de proteger os membros mais fracos do grupo.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/inv_misc_monsterclaw_03.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Dano Corpo a Corpo e Longo Alcance</h5>
+                            </div>
+                            <p>Os druidas podem tomar a forma de gato para rasgar e morder inimigos próximos ou luniscante selvagem para atacar a longa distância.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Arqueiro-->
+        <div class="d-none container pb-5" id="arqueiro">
+            <div class="titulo-classe text-center pb-3 pt-4">
+                <h1 class="display-3 font-weight-bold">Arqueiro</h1>
+                <h3>Dano Físico à Distância</h3>
+            </div>
+            <div class="row">
+                <div class="card col-12 col-md-6 card-1 mb-4 mb-md-0">
+                    <div class="card-body texto-1">
+                        <h3>Informações da classe</h3>
+                        <p>Os arqueiros enfrentam os inimigos a distância ou de perto, ordenando que seus ajudantes ataquem enquanto atiram flechas, disparam suas armas ou desferem ataques com armas de haste. Mesmo com armamentos eficazes a curta e longa distância, os arqueiros também são muito ágeis. Eles são capazes de fugir ou aprisionar os inimigos para controlar a arena de batalha.</p>
+                        <h3>Funções</h3>
+                        <p>Dano Físico à Distância</p>
+                        <h3>Recursos</h3>
+                        <p>Pontos de Vida, Concentração</p>
+                        <h3>Armadura</h3>
+                        <p>Malha</p>
+                        <h3>Armas</h3>
+                        <p>Machados, arcos, bestas, adagas, armas de punho, armas de fogo, armas de haste, cajados, espadas</p>
+                    </div>
+                </div>
+                <div class="card col-12 col-md-6 card-2">
+                    <div class="card-body">
+                        <div class="titulo-texto-2">
+                            <img class="card-img-overlay d-none d-md-block" style="left:200px; top: -100px;" src="assets/img/arqueiro-icon.png">
+                            <h3 class="text-center pt-5">Características</h3>
+                        </div>
+                        <div class="texto-2">
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/ability_hunter_beasttaming.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Ajudantes</h5>
+                            </div>
+                            <p>Arqueiros domam as feras selvagens e em troca elas atacam e os protegem dos inimigos.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/inv_weapon_bow_02.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Dano de Longo Alcance</h5>
+                            </div>
+                            <p>Seja com arcos, armas de fogo ou bestas, os arqueiros são letais à distância. Eles também são capazes de causar muitos danos de maneira consistente.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/spell_frost_chainsofice.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Dano Corpo a Corpo</h5>
+                            </div>
+                            <p>A energia caótica que flui nos Arqueiros de Demônios energiza seus golpes físicos e mágicos, tornando-os devastadores.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/ability_upgrademoonglaive.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Por Si Só</h5>
+                            </div>
+                            <p>Graças aos seus animais e potência de dano, os arqueiros são eficientes ao completar missões e avançar de nível rapidamente, mesmo quando estão sozinhos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Mago-->
+        <div class="d-none container pb-5" id="mago">
+            <div class="titulo-classe text-center pb-3 pt-4">
+                <h1 class="display-3 font-weight-bold">Mago</h1>
+                <h3>Dano Mágico à Distância</h3>
+            </div>
+            <div class="row">
+                <div class="card col-12 col-md-6 card-1 mb-4 mb-md-0">
+                    <div class="card-body texto-1">
+                        <h3>Informações da classe</h3>
+                        <p>Os magos destroem seus adversários com o uso de conjurações arcanas. Apesar de dominarem poderosas magias ofensivas, os magos são frágeis e usam armaduras leves deixando-os particularmente vulneráveis contra ataques corpo a corpo. Os magos mais sábios utilizam suas magias com cautela para manter seus inimigos sempre distantes e imobilizados.</p>
+                        <h3>Funções</h3>
+                        <p>Dano Mágico à Distância</p>
+                        <h3>Recursos</h3>
+                        <p>Pontos de Vida, Mana</p>
+                        <h3>Armadura</h3>
+                        <p>Tecido</p>
+                        <h3>Armas</h3>
+                        <p>Varinhas, Adagas, Espadas de uma mão, Cajados</p>
+                    </div>
+                </div>
+                <div class="card col-12 col-md-6 card-2">
+                    <div class="card-body">
+                        <div class="titulo-texto-2">
+                            <img class="card-img-overlay d-none d-md-block" style="left:210px; top: -80px;" src="assets/img/mago-icon.png">
+                            <h3 class="text-center pt-5">Características</h3>
+                        </div>
+                        <div class="texto-2">
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/spell_fire_flamebolt.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Dano de Longo Alcance</h5>
+                            </div>
+                            <p>Os magos podem utilizar mana para causar grandes quantidades de dano em um período curto de tempo, porém eles devem ter cuidado para não esgotarem suas reservas deste recurso.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/spell_frost_icestorm.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Dano em Área</h5>
+                            </div>
+                            <p>Ao evocar lâminas de gelo, colunas de fogo e ondas de poder arcano, os magos são capazes de atacar vários inimigos ao mesmo tempo com bastante eficácia.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/spell_nature_polymorph.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Controle</h5>
+                            </div>
+                            <p>Os magos têm várias opções para manter o controle sobre o campo de batalha, desde congelar seus inimigos até transformá-los em uma criatura indefesa.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/spell_arcane_portaldalaran.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Teletransporte</h5>
+                            </div>
+                            <p>Os magos são capazes de transportar seus aliados e si mesmos entre cidades e conjurar comida e água restauradoras.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+        <!--Paladino-->
+        <div class="d-none container pb-5" id="paladino">
+            <div class="titulo-classe text-center pb-3 pt-4">
+                <h1 class="display-3 font-weight-bold">Paladino</h1>
+                <h3>Tanque, Cura, Dano Corpo a Corpo</h3>
+            </div>
+            <div class="row">
+                <div class="card col-12 col-md-6 card-1 mb-4 mb-md-0">
+                    <div class="card-body texto-1">
+                        <h3>Informações da classe</h3>
+                        <p>Os paladinos enfrentam os inimigos de frente, contando com armaduras pesadas e cura para sobreviver na batalha. Seja com escudos massivos ou armas devastadoras de duas mãos, os paladinos são capazes de manter garras e espadas distantes de seus aliados mais fracos ou usar magias de cura para certificar que eles continuem de pé.</p>
+                        <h3>Funções</h3>
+                        <p>Tanque, Cura, Dano Corpo a Corpo</p>
+                        <h3>Recursos</h3>
+                        <p>Pontos de Vida, Mana, Poder Sagrado</p>
+                        <h3>Armadura</h3>
+                        <p>Placa, Escudos</p>
+                        <h3>Armas</h3>
+                        <p>Machados, Maças, Espadas, Armas de Haste</p>
+                    </div>
+                </div>
+                <div class="card col-12 col-md-6 card-2">
+                    <div class="card-body">
+                        <div class="titulo-texto-2">
+                            <img class="card-img-overlay d-none d-md-block" style="left:210px; top: -90px;" src="assets/img/paladino-icon.png">
+                            <h3 class="text-center pt-5">Características</h3>
+                        </div>
+                        <div class="texto-2">
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/spell_holy_avengersshield.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Tanque</h5>
+                            </div>
+                            <p>Os paladinos mais robustos são treinados para usar as armaduras e escudos e podem utilizar suas habilidades para garantir que os inimigos se concentrem sobre eles a fim de defender os integrantes mais vulneráveis de seu grupo.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/spell_holy_crusaderstrike.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Dano Corpo a Corpo</h5>
+                            </div>
+                            <p>Os paladinos banham suas armas com poder sagrado, permitindo que seus ataques causem dano adicional.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/spell_holy_devotionaura.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Benção e Auras</h5>
+                            </div>
+                            <p>Como campeões da ordem, os paladinos são muito poderosos quando fazem parte de um grupo. Suas bênçãos e auras podem melhorar o dano e sobrevivência de si mesmos e de seus aliados.</p><hr>
+                            <div class="d-flex justify-content-center">
+                                <img src="//blzmedia-a.akamaihd.net/wow/icons/56/spell_holy_layonhands.jpg" height="30px">
+                                <h5 class="align-self-center mb-0 pl-2">Cura</h5>
+                            </div>
+                            <p>As potentes habilidades de cura do paladino certificam que tanto eles como seus aliados permaneçam aptos para a batalha.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <div class="footer">
+            <div class="footer1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 d-flex justify-content-center">
+                            <span>Nos siga nas redes sociais</span>
+                        </div>
+                        <div class="col-md-6 d-flex align-self-center justify-content-center">
+                            <a href="" class="btn btn-outline-dark">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="" class="btn btn-outline-dark">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="" class="btn btn-outline-dark">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="" class="btn btn-outline-dark">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="" class="btn btn-outline-dark">
+                                <i class="fab fa-twitch"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <div>
+                                <a href="index.html" class="navbar-brand mr-0 pl-3"><i class="fa-solid fa-snowflake fa-2xl"></i></a>
+                                <span>BEW Studio's</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-3 text-center">
+                        <div class="col-sm-2 offset-sm-2 col-lg-1 offset-lg-4">
+                            <a href="#"><p>Privacidade</p></a>
+                        </div>
+                        <div class="col-sm-2 col-lg-1">
+                            <a href="#"><p class="pl-sm-4">Sobre</p></a>
+                        </div>
+                        <div class="col-sm-2 col-lg-1">
+                            <a href="#"><p>Suporte</p></a>
+                        </div>
+                        <div class="col-sm-2 col-lg-1">
+                            <a href="#"><p>Contato</p></a>
+                        </div>
+                    </div>
+                    <div class="row direitos">
+                        <div class="col d-flex justify-content-center">
+                            <p class="m-0">&copy; 2023 BEW Studio's, Inc. Todos direitos reservados</p>
+                        </div>
+                    </div>
+                    <div class="row direitos direito2">
+                        <div class="col d-flex justify-content-center">
+                            <p class="m-sm-2">Todas as marcas registradas mencionadas são de propriedade de seus respectivos donos.</p>
+                        </div>
+                    </div>
+                    <div class="row pt-3 pb-3 proibido">
+                        <div class="col col-md-6 d-flex justify-content-end">
+                            <img src="https://images.contentstack.io/v3/assets/blt0eb2a2986b796d29/bltfec52e9b4c5e7641/6217a05bd99501714bc22ece/12.png?&amp;height=100&amp;disable=upscale" alt="Rating" title="Rating">
+                        </div>
+                        <div class="col col-md-6">
+                            <p class="m-0">Violência</p>
+                            <p class="m-0">Conteúdo Sexual</p>
+                            <p class="m-0">Linguagem imprópria</p>
+                            <p class="m-0">Compras online</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/js/jquery-3.3.1.js"></script>
+        <script src="assets/js/popper.js"></script>
+        <script src="assets/js/bootstrap.js"></script>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>

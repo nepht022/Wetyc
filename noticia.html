@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/all.css" rel="stylesheet">
+        <link href="assets/css/estilo.css" rel="stylesheet">
+        <title>When They Came</title>
+        <link rel="icon" href="assets/img/icon-title.svg">
+    </head>
+    <body>
+        <!--Barra de navegação-->
+        <nav class="navbar navbar-expand-lg fixed-top navBarra">
+            <div class="container">
+                <a href="index.html" class="navbar-brand pr-3 pl-3"><i class="fa-solid fa-khanda fa-flip-horizontal fa-2xl icon"></i></a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Botao de Navegação">
+                    <i class="fa-solid fa-regular fa-bars navTexto"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <div class="navbar-nav mr-auto">
+                        <a class="navTexto" href="noticia.html">Notícias</a>
+                        <a class="navTexto" href="#modalAddComentario" data-toggle="modal">Comentário</a>
+                        <div class="dropdown">
+                            <a class="nav-item nav-link navTexto dropdown-toggle" data-toggle="dropdown" href="#">Atualizações</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="atualizacao.html#body-2" id="dois">v2.0</a>
+                                <a class="dropdown-item" href="atualizacao.html#body-9" id="nove">v1.9.2</a>
+                                <a class="dropdown-item" href="atualizacao.html#body-8" id="oito">v1.8.5</a>
+                            </div>
+                        </div>
+                        <a class="navTexto" href="loja.html">Loja</a>
+                        <a class="navTexto" href="classe.html">Classes</a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link navTexto" href="#"><i class="fa-solid fa-basket-shopping fa-md pr-1 d-none d-lg-inline-block"></i>
+                            <span class="d-block d-lg-none navTexto">Carrinho</span>
+                        </a>
+                        <a class="nav-item nav-link navTexto" href="#"><i class="fa-solid fa-right-to-bracket fa-md pr-1 d-none d-lg-inline-block"></i>
+                            <span>Login</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!--Navegação Modal Comentarios-->
+        <div class="modal fade" id="modalAddComentario">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-title"><b>Adição de Comentário</b></span>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form>
+                            <fieldset class="form-group">
+                                <div class="form-group row">
+                                    <label for="nick" class="col-form-label col-lg-2">Nickname: </label>
+                                    <div class="col-lg-10">
+                                        <input type="text" id="nick" name="nick" class="form-control" aria-describedby="ajudaNick" placeholder="Nome no jogo">
+                                        <small id="ajudaNick" class="form-text text-muted">
+                                            Seu nick pode ser escrito todo em <b>minúsculo</b>.
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="email" class="col-form-label col-lg-2">Email: </label>
+                                    <div class="col-lg-10">
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="E-mail">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="sexo" class="col-form-label col-lg-2">Sexo: </label>
+                                    <div class="col-lg-10" style="padding-top: 7px;">
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" id="sexo-m" name="sexo" value="M" class="form-check-input">
+                                            <label for="sexo-m" class="form-check-label">
+                                                Masculino
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" id="sexo-f" name="sexo" value="F" class="form-check-input">
+                                            <label for="sexo-f" class="form-check-label">
+                                                Feminino
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" id="sexo-o" name="sexo" value="O" class="form-check-input">
+                                            <label for="sexo-o" class="form-check-label">
+                                                Outro
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="satRange" class="col-form-label col-lg-2">Está gostando do jogo?</label>
+                                    <div class="col-lg-10 align-self-center">
+                                        <input type="range" id="satRange" name="satRange" class="custom-range" min="1" max="10" step="1" value="10">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="textArea" class="col-form-label col-lg-2">Comentário: </label>
+                                    <div class="col-lg-10">
+                                        <textarea id="textArea" name="textArea" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="form-group row">
+                                <div class="col-lg-10 offset-lg-2">
+                                   <button type="button" class="btn btn-dark " data-dismiss="modal" onclick="comentarioPostado()">
+                                        Postar
+                                   </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Carousel-Topo-Home Acima de MD-->
+        <div class="carousel slide carousel-fade d-none d-md-block" id="carousel-home" data-ride="carousel" data-interval="3000" data-animation="0.5">
+            <ol class="carousel-indicators">
+                <li class="active" data-target="#carousel-home" data-slide-to="0"></li>
+                <li data-target="#carousel-home" data-slide-to="1"></li>
+                <li data-target="#carousel-home" data-slide-to="2"></li>
+                <li data-target="#carousel-home" data-slide-to="3"></li>
+                <li data-target="#carousel-home" data-slide-to="4"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/img/Imagem1.jpg" class="d-block w-100" height="600px" style="margin-top: 68px;" alt="Paisagem1">
+                    <div class="carousel-caption" style="top: 220px">
+                        <div class="text-center">
+                            <span class="texto-carousel">Santycity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="assets/img/Imagem2.jfif" class="d-block w-100" height="600px" style="margin-top: 68px;" alt="Paisagem2">
+                    <div class="carousel-caption" style="top: 220px">
+                        <div class="text-center">
+                            <span class="texto-carousel">Plagueville</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="assets/img/Imagem3.jpg" class="d-block w-100" height="600px" style="margin-top: 68px;" alt="Paisagem3">
+                    <div class="carousel-caption" style="top: 220px">
+                        <div class="text-center">
+                            <span class="texto-carousel">Rootland</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="assets/img/Imagem4.jpg" class="d-block w-100" height="600px" style="margin-top: 68px;" alt="Paisagem4">
+                    <div class="carousel-caption" style="top: 220px">
+                        <div class="text-center">
+                            <span class="texto-carousel">Worldtree</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="assets/img/Imagem5.jpg" class="d-block w-100" height="600px" style="margin-top: 68px;" alt="Paisagem5">
+                    <div class="carousel-caption" style="top: 220px">
+                        <div class="text-center">
+                            <span class="texto-carousel">Drycoast</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#carousel-home" class="carousel-control-prev" role="button" data-slide="prev">
+                <span aria-hidden="true" class="carousel-control-prev-icon">
+                    <span class="sr-only">Anterior</span>
+                </span>
+            </a>
+            <a href="#carousel-home" class="carousel-control-next" role="button" data-slide="next">
+                <span aria-hidden="true" class="carousel-control-next-icon">
+                    <span class="sr-only">Proximo</span>
+                </span>
+            </a>
+        </div>
+
+        <!--Jumbotron-Topo-Home Abaixo de MD-->
+        <div class="container">
+            <div class="jumbotron d-block d-md-none text-center jumbo-style" style="margin-top: 85px;">
+                <h3>Localidades: </h3><br>
+                <ol class="breadcrumb justify-content-center jumbo-style">
+                    <li class="breadcrumb-item">Santycity</li>
+                    <li class="breadcrumb-item">Plagueville</li>
+                    <li class="breadcrumb-item">Rootland</li>
+                </ol>
+                <ol class="breadcrumb justify-content-center jumbo-style">
+                    <li class="breadcrumb-item">Worldtree</li>
+                    <li class="breadcrumb-item">Drycoast</li>
+                </ol>
+            </div>
+        </div>
+
+        <!--Noticias-->
+        <div class="container pt-5 pb-5 noticias">
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                          <h5 class="mb-3">Próximos Campeonatos</h5>
+                          <img class="w-100" src="assets/img/campeonato.jpg" height="280">
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                          <div class="d-flex w-100 justify-content-between">
+                            <p class="mb-1">Campeonato da batalha final</p>
+                            <small class="tempo">em 4 dias</small>
+                          </div>
+                          <small>Passe pela batalha mais brutal de Wetyc da forma mais rápida que conseguir.</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <p class="mb-1">Campeonato de PvP</p>
+                              <small class="tempo">em 12 dias</small>
+                            </div>
+                            <small>Torneio de batalhas 1v1 dos 100 melhores colocados jogadores no ranking de poder.</small>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                          <h5 class="mb-3">Nova Música</h5>
+                          <img class="w-100" src="assets/img/musica.webp" height="280">
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                          <div class="d-flex w-100 justify-content-between">
+                            <p class="mb-1">Celebrando o início do campeonato</p>
+                            <small class="tempo">em 4 dias</small>
+                          </div>
+                          <small>The Weekend ft. Imagine Dragons - FightDown<br> Música contando a tragetória dos competidores mais famosos dentro da comunidade.</small>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                          <h5 class="mb-3">Divulgação de Vaquinha</h5>
+                          <img class="w-100" src="assets/img/vaquinha.webp" height="280">
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                          <div class="d-flex w-100 justify-content-between">
+                            <p class="mb-1">Vaquinha para o time Gladiators</p>
+                            <small class="tempo">há 2 dias</small>
+                          </div>
+                          <small>Vaquinha da comunidade para ajudar o time brasileiro, gladiators a participar do campeonato na flórida.</small>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                          <h5 class="mb-3">Atualização Programada</h5>
+                          <img class="w-100" src="assets/img/atualizacao.jpg" height="280">
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                          <div class="d-flex w-100 justify-content-between">
+                            <p class="mb-1">Atualização pré Campeonato</p>
+                            <small class="tempo">em 3 dias</small>
+                          </div>
+                          <small>Resolução de bugs, balancemanto na classe paladino e novas missões de evento.</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <p class="mb-1">Atualização de Balanceamento</p>
+                              <small class="tempo">em 16 dias</small>
+                            </div>
+                            <small>Atualizações gerais nas classes druida e guerreiro, e nova poção adicionada.</small>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start pb-4">
+                          <h5 class="mb-3">Divulgando de Arte da Comunidade</h5>
+                          <img class="w-100 art" src="assets/img/art-zarta.jpg" height="400">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start pb-4">
+                          <h5 class="mb-3">Divulgando de Arte da Comunidade</h5>
+                          <img class="w-100 art" src="assets/img/art-lithtic.jpg" height="400">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <div class="footer">
+            <div class="footer1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 d-flex justify-content-center">
+                            <span>Nos siga nas redes sociais</span>
+                        </div>
+                        <div class="col-md-6 d-flex align-self-center justify-content-center">
+                            <a href="" class="btn btn-outline-dark">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="" class="btn btn-outline-dark">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="" class="btn btn-outline-dark">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="" class="btn btn-outline-dark">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="" class="btn btn-outline-dark">
+                                <i class="fab fa-twitch"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <div>
+                                <a href="index.html" class="navbar-brand mr-0 pl-3"><i class="fa-solid fa-snowflake fa-2xl"></i></a>
+                                <span>BEW Studio's</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-3 text-center">
+                        <div class="col-sm-2 offset-sm-2 col-lg-1 offset-lg-4">
+                            <a href="#"><p>Privacidade</p></a>
+                        </div>
+                        <div class="col-sm-2 col-lg-1">
+                            <a href="#"><p class="pl-sm-4">Sobre</p></a>
+                        </div>
+                        <div class="col-sm-2 col-lg-1">
+                            <a href="#"><p>Suporte</p></a>
+                        </div>
+                        <div class="col-sm-2 col-lg-1">
+                            <a href="#"><p>Contato</p></a>
+                        </div>
+                    </div>
+                    <div class="row direitos">
+                        <div class="col d-flex justify-content-center">
+                            <p class="m-0">&copy; 2023 BEW Studio's, Inc. Todos direitos reservados</p>
+                        </div>
+                    </div>
+                    <div class="row direitos direito2">
+                        <div class="col d-flex justify-content-center">
+                            <p class="m-sm-2">Todas as marcas registradas mencionadas são de propriedade de seus respectivos donos.</p>
+                        </div>
+                    </div>
+                    <div class="row pt-3 pb-3 proibido">
+                        <div class="col col-md-6 d-flex justify-content-end">
+                            <img src="https://images.contentstack.io/v3/assets/blt0eb2a2986b796d29/bltfec52e9b4c5e7641/6217a05bd99501714bc22ece/12.png?&amp;height=100&amp;disable=upscale" alt="Rating" title="Rating">
+                        </div>
+                        <div class="col col-md-6">
+                            <p class="m-0">Violência</p>
+                            <p class="m-0">Conteúdo Sexual</p>
+                            <p class="m-0">Linguagem imprópria</p>
+                            <p class="m-0">Compras online</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/js/jquery-3.3.1.js"></script>
+        <script src="assets/js/popper.js"></script>
+        <script src="assets/js/bootstrap.js"></script>
+        <script src="assets/js/script.js"></script>
+        
+    </body>
+</html>
