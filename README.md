@@ -1,6 +1,6 @@
 # Wetyc
 
-[Clique AQUI para acessar](https://github.com/nepht022/Wetyc/index.html)
+[Clique AQUI para acessar](https://nepht022.github.io/Wetyc/)
 
 ## Ferramentas
 
